@@ -1,3 +1,6 @@
+var messages = ["Yes", "Are you sure? Click here if sure", "Really sure?? Click here if sure", "Think again!  Click here if Thought", "You’re breaking my heart... 💔 Click here if want to save my heart","Okay, now you're just being mean. 😭 Click here if want to stop my cry","I thought we had something special...💔 Click here if we have something","Are you literally a robot 🤖? Click here if you're human","I’m not mad, just disappointed. 😞 save me by clicking here","Seems like end of options, telling you we're meant to be together since click yes baby."];
+var messageIndex = 0;
+
 function toggleDiv1122(){
     var div11 = document.getElementById('div11');
     var div22 = document.getElementById('div22');
@@ -37,8 +40,6 @@ function toggleDiv1(){
     } 
 }
 
-
-
 function increaseSize(){
     var button1 = document.getElementById('btn-yes');
     var maxSize = 500;
@@ -48,6 +49,8 @@ function increaseSize(){
         currentSize += 30;
         if (currentSize<maxSize){
             button1.style.padding = currentSize+'px';
+            messageIndex = (messageIndex + 1) % messages.length;
+            button1.innerText = messages[messageIndex];
         }else{
             resetButtonSize();
         }
@@ -58,6 +61,8 @@ function increaseSize(){
 function resetButtonSize(){
     var button = document.getElementById('btn-yes');
     button.style.padding = '8px';
+    button.innerText = messages[0]; // Reset text to "Yes"
+    messageIndex = 0; // Reset index
 }
 
 
