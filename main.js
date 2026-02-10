@@ -80,4 +80,5 @@ function toggleDiv2(){
         div3.style.display = 'none';
         hearts.style.display = 'none';
     }
+    document.getElementById('song').play();
 }
